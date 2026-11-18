@@ -18,11 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
       - name: Make the output folder
         run: mkdir -p dist
 
       - name: Generate the animation
-        uses: czl9707/gh-space-shooter@v2
+        uses: czl9707/gh-space-shooter@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           output-path: dist/gh-space-shooter.gif
